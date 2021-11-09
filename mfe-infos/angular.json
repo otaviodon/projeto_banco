@@ -31,8 +31,7 @@
 							"projects/mfe-infos/src/assets"
 						],
 						"styles": [
-							"projects/mfe-infos/src/styles.scss",
-              "./node_modules/bootstrap/scss/bootstrap.scss"
+							"projects/mfe-infos/src/styles.scss"
 						],
 						"scripts": [],
 						"extraWebpackConfig": "projects/mfe-infos/webpack.config.js",
