@@ -31,7 +31,8 @@
 							"projects/host/src/assets"
 						],
 						"styles": [
-							"projects/host/src/styles.scss"
+							"projects/host/src/styles.scss",
+              "./node_modules/bootstrap/scss/bootstrap.scss"
 						],
 						"scripts": [],
 						"extraWebpackConfig": "projects/host/webpack.config.js",
