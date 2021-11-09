@@ -1,5 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Client } from './client.model.';
+import { InformationService } from './information.service';
 
 @Component({
   selector: 'app-infos',
@@ -7,44 +10,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./infos.component.scss']
 })
 export class InfosComponent implements OnInit {
+  cpf: string = '';
+  dadosCliente!: Client;
 
-  constructor(private http: HttpClient) { }
-
-  ngOnInit(): void {
-    this.reaproveitamentoDeDados();
+  constructor(
+    private informationService: InformationService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
+    this.route.queryParams.subscribe((queryParams: Params) => {
+      this.cpf = queryParams['cpf'];
+    });
+    this.getDados();
   }
 
+  ngOnInit(): void {}
 
-
-  reaproveitamentoDeDados() {
-
-    let body = {
-      "cpf": "11111111111"
-    }
-
-    let host = 'http://bancoapi-env.eba-ra7jpuyh.us-east-2.elasticbeanstalk.com/api/ReaproveitaDados/buscarCPF';
-
-    this.http.post<any>(host, body).subscribe(info => {
-
-      console.log(info);
-      return info;
-    },
-      (err) => {
-        console.log("Erro ao chamar a API");
-
-      }
-
-
-    );
-
+  getDados() {
+    this.informationService.getDadosCliente(this.cpf).subscribe((dados) => {
+      const todosOsdados: any = dados;
+      this.dadosCliente = todosOsdados.cliente;
+    });
   }
 
-
-
-  chamaApi() {
-
-
+  goBackPage() {
+    this.router.navigate(['dados'], {
+      queryParams: { cpf: this.cpf, userData: true },
+    });
   }
-
 
 }

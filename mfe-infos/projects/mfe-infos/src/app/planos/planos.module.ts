@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { PlanosRoutingModule } from './planos-routing.module';
 import { PlanosComponent } from './planos.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,8 +15,10 @@ import { PlanosComponent } from './planos.component';
     imports: [
         BrowserModule,
         HttpClientModule,
-        PlanosRoutingModule
-
+        FormsModule,
+        ReactiveFormsModule,
+        PlanosRoutingModule,
+        MatToolbarModule
     ],
     providers: []
 })

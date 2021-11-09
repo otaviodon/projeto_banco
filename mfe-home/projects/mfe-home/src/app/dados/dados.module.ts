@@ -7,7 +7,13 @@ import { DadosComponent } from './dados.component';
 
 @NgModule({
   declarations: [DadosComponent],
-  imports: [BrowserModule, DadosRoutingModule, FormsModule, ReactiveFormsModule, MatToolbarModule],
+  imports: [
+    BrowserModule,
+    DadosRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatToolbarModule,
+  ],
   providers: [],
 })
 export class DadosModule {}
