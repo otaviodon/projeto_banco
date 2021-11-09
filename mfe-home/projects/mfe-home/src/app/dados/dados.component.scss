@@ -13,6 +13,10 @@ input.ng-invalid.ng-touched{border: 1px solid red;}
   color: #003767;
   font-weight: bold;
 }
+
+.mat-toolbar{
+  min-height: 80px;
+}
 .mat-toolbar.mat-primary {
   background: #ec7000;
 }
