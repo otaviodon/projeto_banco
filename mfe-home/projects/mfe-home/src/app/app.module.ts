@@ -1,15 +1,19 @@
+import { DadosModule } from './dados/dados.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
+import { SelfieModule } from './selfie/selfie.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
-    HomeModule
+    HomeModule,
+    DadosModule,
+    SelfieModule
   ],
   providers: [],
   bootstrap: [AppComponent]

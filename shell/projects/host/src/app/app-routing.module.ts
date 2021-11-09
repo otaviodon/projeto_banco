@@ -4,12 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
 
-
 const routes: Routes = [
-
   {
     path: '',
-    redirectTo: 'home', pathMatch: 'full'
+    redirectTo: 'home',
+    pathMatch: 'full',
   },
 
   {
@@ -22,9 +21,26 @@ const routes: Routes = [
           loadRemoteModule({
             remoteEntry: 'http://localhost:4200/remoteEntry.js',
             remoteName: 'mfeHome',
-            exposedModule: './HomeModule'
-          }).then((m) => m.HomeModule)
-
+            exposedModule: './HomeModule',
+          }).then((m) => m.HomeModule),
+      },
+      {
+        path: 'dados',
+        loadChildren: () =>
+          loadRemoteModule({
+            remoteEntry: 'http://localhost:4200/remoteEntry.js',
+            remoteName: 'mfeHome',
+            exposedModule: './DadosModule',
+          }).then((m) => m.DadosModule),
+      },
+      {
+        path: 'selfie',
+        loadChildren: () =>
+          loadRemoteModule({
+            remoteEntry: 'http://localhost:4200/remoteEntry.js',
+            remoteName: 'mfeHome',
+            exposedModule: './SelfieModule',
+          }).then((m) => m.SelfieModule),
       },
       {
         path: 'infos',
@@ -32,11 +48,27 @@ const routes: Routes = [
           loadRemoteModule({
             remoteEntry: 'http://localhost:3000/remoteEntry.js',
             remoteName: 'mfeInfos',
-            exposedModule: './InfosModule'
-          }).then((m) => m.InfosModule)
-
-      }
-
+            exposedModule: './InfosModule',
+          }).then((m) => m.InfosModule),
+      },
+      {
+        path: 'planos',
+        loadChildren: () =>
+          loadRemoteModule({
+            remoteEntry: 'http://localhost:3000/remoteEntry.js',
+            remoteName: 'mfeInfos',
+            exposedModule: './PlanosModule',
+          }).then((m) => m.PlanosModule),
+      },
+      {
+        path: 'dashboard',
+        loadChildren: () =>
+          loadRemoteModule({
+            remoteEntry: 'http://localhost:3000/remoteEntry.js',
+            remoteName: 'mfeInfos',
+            exposedModule: './DashboardModule',
+          }).then((m) => m.DashboardModule),
+      },
       // {
       //   path: 'endereco',
       //   loadChildren: () =>
@@ -47,17 +79,14 @@ const routes: Routes = [
       //     }).then((m) => m.InfosModule)
 
       // },
-
-    ]
+    ],
 
     // import("./mfefeature/mfefeature.module").then((m) => m.MfefeatureModule),
-
-  }
-
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

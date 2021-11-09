@@ -17,7 +17,16 @@ const routes: Routes = [
                 (m) => m.InfosModule
             )
 
-    }
+    },
+
+    {
+      path: 'planos',
+      loadChildren: () =>
+          import('./planos/planos.module').then(
+              (m) => m.PlanosModule
+          )
+
+  }
 
 
 ];

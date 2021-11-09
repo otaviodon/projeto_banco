@@ -30,7 +30,9 @@ module.exports = {
       name: "mfeHome",
       filename: "remoteEntry.js",
       exposes: {
-        './HomeModule': 'projects/mfe-home/src/app/home/home.module.ts'
+        './HomeModule': 'projects/mfe-home/src/app/home/home.module.ts',
+        './DadosModule': 'projects/mfe-home/src/app/dados/dados.module.ts',
+        './SelfieModule': 'projects/mfe-home/src/app/selfie/selfie.module.ts',
       },
 
       // remotes: {
