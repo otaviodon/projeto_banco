@@ -31,7 +31,8 @@
 							"projects/host/src/assets"
 						],
 						"styles": [
-							"projects/host/src/styles.scss"
+							"projects/host/src/styles.scss",
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
 						],
 						"scripts": [],
 						"extraWebpackConfig": "projects/host/webpack.config.js",
@@ -108,7 +109,8 @@
 							"projects/host/src/assets"
 						],
 						"styles": [
-							"projects/host/src/styles.scss"
+							"projects/host/src/styles.scss",
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
 						],
 						"scripts": []
 					}
