@@ -49,9 +49,9 @@
     </div>
     <div class="row">
       <div class="mb-3 col">
-        <label for="cpf" class="form-label">CPF</label>
+        <label for="cpf" class="form-label">CPF (somente numeros)</label>
         <input
-          placeholder="000.000.000-00"
+          placeholder=""
           type="text"
           class="form-control mb-1"
           id="cpf"
@@ -108,7 +108,28 @@
         </span>
       </div>
     </div>
+
     <div class="row">
+      <div class="mb-3 col">
+        <label for="numeroCelular" class="form-label">Numero de celular</label>
+        <input
+          placeholder="(00)00000-0000"
+          type="text"
+          class="form-control mb-1"
+          id="numeroCelular"
+          formControlName="numeroCelular"
+          #numeroCelular
+        />
+        <span
+          class="help-block text-danger mb-3"
+          *ngIf="
+            !formDados.get('numeroCelular')!.valid &&
+            formDados.get('numeroCelular')!.touched
+          "
+        >
+          Informe o numero de celular
+        </span>
+      </div>
       <div class="mb-3 col">
         <label for="salarioMensal" class="form-label">Salario mensal</label>
         <input
@@ -128,27 +149,17 @@
         </span>
       </div>
       <div class="mb-3 col">
-        <label for="numeroCelular" class="form-label">Numero de celular</label>
-        <input
-          placeholder="(00)00000-0000"
-          type="text"
-          class="form-control mb-1"
-          id="numeroCelular"
-          formControlName="numeroCelular"
-        />
-        <span
-          class="help-block text-danger mb-3"
-          *ngIf="
-            !formDados.get('numeroCelular')!.valid &&
-            formDados.get('numeroCelular')!.touched
-          "
-        >
-          Informe o numero de celular
-        </span>
-      </div>
-      <div class="mb-3 col">
         <a class="eye-link" (click)="showPass(senha)">
-          <i class="bi bi-eye" style="margin-right: 5px"></i>
+          <i
+            class="bi bi-eye"
+            style="margin-right: 5px"
+            *ngIf="!showPassword"
+          ></i>
+          <i
+            class="bi bi-eye-slash-fill"
+            style="margin-right: 5px"
+            *ngIf="showPassword"
+          ></i>
         </a>
         <label for="senha" class="form-label">Senha (6 dígitos)</label>
         <input
@@ -179,6 +190,7 @@
             class="form-control mb-1"
             id="cep"
             formControlName="cep"
+            (blur)="consultaCEP()"
           />
           <span
             class="help-block text-danger mb-3"

@@ -21,4 +21,10 @@ export class DadosService {
       { cpf }
     );
   }
+
+
+  buscaCep(cep: string){
+    return this.httpClient.get(`//viacep.com.br/ws/${cep}/json`)
+  }
+
 }

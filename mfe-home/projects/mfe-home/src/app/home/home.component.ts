@@ -25,9 +25,9 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    setTimeout(() => {
+    /* setTimeout(() => {
       console.log(this.usuariosCadastrados);
-    }, 400);
+    }, 400); */
   }
 
   fetchUsers() {
@@ -57,7 +57,7 @@ export class HomeComponent implements OnInit {
         });
       } else {
         this.router.navigate(['dados'], {
-          queryParams: { cpf: cpf, userData: false },
+          queryParams: { cpf: cpf},
         });
         //console.log('USUARIO NÃO EXISTE');
       }
