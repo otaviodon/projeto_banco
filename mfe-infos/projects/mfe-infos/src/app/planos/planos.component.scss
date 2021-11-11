@@ -1,4 +1,4 @@
-#planos{
+#planos {
   padding: 0 0 0px;
   min-height: 100vh;
 }
@@ -35,8 +35,23 @@ input.ng-invalid.ng-touched {
   border: 0.1px solid rgba(0, 0, 0, 0.05);
 }
 
-
-select{
+select {
   border: 1px solid rgba(0, 0, 0, 0.2);
+}
 
+@media screen and (max-width: 700px) {
+  .title-planos {
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
+
+  .form-planos {
+    margin: 0 auto;
+  }
+
+  .row {flex-direction: column;}
+
+  .col-6.card-planos{width: 100%; padding: 10px; margin-bottom: 15px;}
+
+  .container{width: 90%;}
 }

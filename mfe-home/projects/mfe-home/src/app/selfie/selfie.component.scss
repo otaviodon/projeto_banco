@@ -3,6 +3,7 @@
 }
 
 #selfie {
+  padding: 0 0 50px;
 }
 
 .box-selfie {
@@ -23,7 +24,30 @@ p {
   font-weight: bold;
 }
 
-input, button{
+input,
+button {
   border: 1px solid black;
 }
 
+@media screen and (max-width: 800px) {
+  .box-selfie {
+    width: 90%;
+  }
+
+  .input-group {
+    flex-direction: column;
+  }
+
+  input[type="file"] {
+    width: 100%;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .img-selfie {
+    width: 150px;
+    margin: 0 auto 20px;
+  }
+
+  p{font-weight: bold;font-size: 14px;}
+}

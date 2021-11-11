@@ -12,7 +12,7 @@ form {
   background: rgba(0, 0, 0, 0.05);
   padding: 25px;
   border-radius: 20px;
-  box-shadow: 15px 15px 200px rgb(0, 0, 0,0.3);
+  box-shadow: 15px 15px 200px rgb(0, 0, 0, 0.3);
   border: 0.5px solid rgba(0, 0, 0, 0.05);
 }
 
@@ -51,4 +51,20 @@ input.ng-invalid.ng-touched {
 .eye-link {
   cursor: pointer;
   color: unset;
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    width: 95%;
+  }
+  .col {
+    width: 100%;
+  }
+  .row {
+    flex-direction: column;
+  }
+  .btn-primary, .btn-secondary {
+    width: 100%;
+  }
+
 }

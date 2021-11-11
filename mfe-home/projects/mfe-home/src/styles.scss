@@ -1,5 +1,5 @@
-@import '~bootstrap/scss/bootstrap.scss';
-@import '~bootstrap-icons/font/bootstrap-icons.css';
+@import "~bootstrap/scss/bootstrap.scss";
+@import "~bootstrap-icons/font/bootstrap-icons.css";
 
 .logo-itau {
   width: 300px;
@@ -14,7 +14,7 @@
   color: #003767;
   font-weight: bold;
 }
-.mat-toolbar{
+.mat-toolbar {
   min-height: 80px;
 }
 
@@ -23,7 +23,10 @@
   font-weight: bold;
 }
 
-.mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
+.mat-flat-button.mat-primary,
+.mat-raised-button.mat-primary,
+.mat-fab.mat-primary,
+.mat-mini-fab.mat-primary {
   background-color: #003767;
 }
 
@@ -36,5 +39,8 @@
   margin-right: 15px;
 }
 
-@media screen and (min-width: 320px) and (max-width: 1400px) {
+@media screen and (max-width: 800px) {
+  .mat-toolbar.mat-primary {
+    font-size: 18px;
+  }
 }

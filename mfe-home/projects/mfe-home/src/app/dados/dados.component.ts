@@ -122,7 +122,7 @@ export class DadosComponent implements OnInit {
       });
 
     console.log(dadosCadastrais);
-    this.formDados.reset();
+    //this.formDados.reset();
 
     this.router.navigate(['/selfie'], {
       queryParams: {
