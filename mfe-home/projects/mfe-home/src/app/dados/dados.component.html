@@ -1,321 +1,327 @@
-<mat-toolbar color="primary" class="mb-5">
-  <img
-    class="img-itau"
-    src="../assets/images/logo-itau-varejo-desktop.webp"
-    alt="Logo Itaú"
-  />
-  <span>Preencha os dados para abertura de conta</span>
-  <span class="example-spacer"></span>
-</mat-toolbar>
-<div class="container">
-  <form [formGroup]="formDados" (ngSubmit)="onSubmit()">
-    <div class="row">
-      <div class="mb-3 col">
-        <label for="nomeCompleto" class="form-label">Nome completo</label>
-        <input
-          type="text"
-          class="form-control mb-1"
-          id="nomeCompleto"
-          formControlName="nomeCompleto"
-        />
-        <span
-          class="help-block text-danger"
-          *ngIf="
-            !formDados.get('nomeCompleto')!.valid &&
-            formDados.get('nomeCompleto')!.touched
-          "
-        >
-          Informe o nome
-        </span>
-      </div>
-      <div class="mb-3 col">
-        <label for="email" class="form-label">Email</label>
-        <input
-          type="email"
-          class="form-control mb-1"
-          id="email"
-          formControlName="email"
-        />
+<div class="dados">
+  <mat-toolbar color="primary" class="mb-5">
+    <img
+      class="img-itau"
+      src="../assets/images/logo-itau-varejo-desktop.webp"
+      alt="Logo Itaú"
+    />
+    <span>Preencha os dados para abertura de conta</span>
+    <span class="example-spacer"></span>
+  </mat-toolbar>
 
-        <span
-          class="help-block text-danger"
-          *ngIf="
-            !formDados.get('email')!.valid && formDados.get('email')!.touched
-          "
-        >
-          Digite um email válido
-        </span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="mb-3 col">
-        <label for="cpf" class="form-label">CPF (somente numeros)</label>
-        <input
-          placeholder=""
-          type="text"
-          class="form-control mb-1"
-          id="cpf"
-          formControlName="cpf"
-          maxlength="11"
-        />
-        <span
-          class="help-block text-danger"
-          *ngIf="!formDados.get('cpf')!.valid && formDados.get('cpf')!.touched"
-        >
-          Digite um cpf válido
-        </span>
-      </div>
-
-      <div class="mb-3 col">
-        <label for="dataNascimento" class="form-label"
-          >Data de nascimento</label
-        >
-        <input
-          placeholder="00/00/0000"
-          type="text"
-          class="form-control mb-1"
-          id="dataNascimento"
-          formControlName="dataNascimento"
-        />
-        <span
-          class="help-block text-danger"
-          *ngIf="
-            !formDados.get('dataNascimento')!.valid &&
-            formDados.get('dataNascimento')!.touched
-          "
-        >
-          Informe a data de nascimento
-        </span>
-      </div>
-
-      <div class="mb-3 col">
-        <label for="dataCadastro" class="form-label">Data de cadastro</label>
-        <input
-          placeholder="00/00/0000"
-          type="text"
-          class="form-control mb-1"
-          id="dataCadastro"
-          formControlName="dataCadastro"
-        />
-        <span
-          class="help-block text-danger"
-          *ngIf="
-            !formDados.get('dataCadastro')!.valid &&
-            formDados.get('dataCadastro')!.touched
-          "
-        >
-          Informe a data de cadastro
-        </span>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="mb-3 col">
-        <label for="numeroCelular" class="form-label">Numero de celular</label>
-        <input
-          placeholder="(00)00000-0000"
-          type="text"
-          class="form-control mb-1"
-          id="numeroCelular"
-          formControlName="numeroCelular"
-          #numeroCelular
-        />
-        <span
-          class="help-block text-danger mb-3"
-          *ngIf="
-            !formDados.get('numeroCelular')!.valid &&
-            formDados.get('numeroCelular')!.touched
-          "
-        >
-          Informe o numero de celular
-        </span>
-      </div>
-      <div class="mb-3 col">
-        <label for="salarioMensal" class="form-label">Salario mensal</label>
-        <input
-          type="text"
-          class="form-control mb-1"
-          id="salarioMensal"
-          formControlName="salarioMensal"
-        />
-        <span
-          class="help-block text-danger mb-3"
-          *ngIf="
-            !formDados.get('salarioMensal')!.valid &&
-            formDados.get('salarioMensal')!.touched
-          "
-        >
-          Informe o salário mensal
-        </span>
-      </div>
-      <div class="mb-3 col">
-        <a class="eye-link" (click)="showPass(senha)">
-          <i
-            class="bi bi-eye"
-            style="margin-right: 5px"
-            *ngIf="!showPassword"
-          ></i>
-          <i
-            class="bi bi-eye-slash-fill"
-            style="margin-right: 5px"
-            *ngIf="showPassword"
-          ></i>
-        </a>
-        <label for="senha" class="form-label">Senha (6 dígitos)</label>
-        <input
-          #senha
-          placeholder="******"
-          type="password"
-          class="form-control mb-1"
-          id="senha"
-          formControlName="senha"
-          maxlength="6"
-        />
-        <span
-          class="help-block text-danger mb-3"
-          *ngIf="
-            !formDados.get('senha')!.valid && formDados.get('senha')!.touched
-          "
-        >
-          Informe a senha
-        </span>
-      </div>
-    </div>
-    <div formGroupName="endereco" class="mb-2">
+  <div class="container">
+    <form [formGroup]="formDados" (ngSubmit)="onSubmit()">
       <div class="row">
         <div class="mb-3 col">
-          <label for="cep" class="form-label">Cep</label>
+          <label for="nomeCompleto" class="form-label">Nome completo</label>
           <input
             type="text"
             class="form-control mb-1"
-            id="cep"
-            formControlName="cep"
-            (blur)="consultaCEP()"
+            id="nomeCompleto"
+            formControlName="nomeCompleto"
           />
           <span
-            class="help-block text-danger mb-3"
+            class="help-block text-danger"
             *ngIf="
-              !formDados.get('endereco.cep')!.valid &&
-              formDados.get('endereco.cep')!.touched
+              !formDados.get('nomeCompleto')!.valid &&
+              formDados.get('nomeCompleto')!.touched
             "
           >
-            Informe o cep
+            Informe o nome
           </span>
         </div>
         <div class="mb-3 col">
-          <label for="rua" class="form-label">Rua</label>
+          <label for="email" class="form-label">Email</label>
           <input
-            type="text"
+            type="email"
             class="form-control mb-1"
-            id="rua"
-            formControlName="rua"
+            id="email"
+            formControlName="email"
           />
+
           <span
-            class="help-block text-danger mb-3"
+            class="help-block text-danger"
             *ngIf="
-              !formDados.get('endereco.rua')!.valid &&
-              formDados.get('endereco.rua')!.touched
+              !formDados.get('email')!.valid && formDados.get('email')!.touched
             "
           >
-            Informe a rua
-          </span>
-        </div>
-        <div class="mb-3 col">
-          <label for="numero" class="form-label">Numero</label>
-          <input
-            type="text"
-            class="form-control mb-1"
-            id="numero"
-            formControlName="numero"
-          />
-          <span
-            class="help-block text-danger mb-3"
-            *ngIf="
-              !formDados.get('endereco.numero')!.valid &&
-              formDados.get('endereco.numero')!.touched
-            "
-          >
-            Informe o numero
+            Digite um email válido
           </span>
         </div>
       </div>
       <div class="row">
         <div class="mb-3 col">
-          <label for="bairro" class="form-label">Bairro</label>
+          <label for="cpf" class="form-label">CPF (somente numeros)</label>
           <input
+            placeholder=""
             type="text"
             class="form-control mb-1"
-            id="bairro"
-            formControlName="bairro"
+            id="cpf"
+            formControlName="cpf"
+            maxlength="11"
           />
           <span
-            class="help-block text-danger mb-3"
+            class="help-block text-danger"
             *ngIf="
-              !formDados.get('endereco.bairro')!.valid &&
-              formDados.get('endereco.bairro')!.touched
+              !formDados.get('cpf')!.valid && formDados.get('cpf')!.touched
             "
           >
-            Informe o bairro
+            Digite um cpf válido
           </span>
         </div>
+
         <div class="mb-3 col">
-          <label for="cidade" class="form-label">Cidade</label>
+          <label for="dataNascimento" class="form-label"
+            >Data de nascimento</label
+          >
           <input
+            placeholder="00/00/0000"
             type="text"
             class="form-control mb-1"
-            id="cidade"
-            formControlName="cidade"
+            id="dataNascimento"
+            formControlName="dataNascimento"
           />
           <span
-            class="help-block text-danger mb-3"
+            class="help-block text-danger"
             *ngIf="
-              !formDados.get('endereco.cidade')!.valid &&
-              formDados.get('endereco.cidade')!.touched
+              !formDados.get('dataNascimento')!.valid &&
+              formDados.get('dataNascimento')!.touched
             "
           >
-            Informe a cidade
+            Informe a data de nascimento
           </span>
         </div>
+
         <div class="mb-3 col">
-          <label for="estado" class="form-label">Estado</label>
+          <label for="dataCadastro" class="form-label">Data de cadastro</label>
           <input
+            placeholder="00/00/0000"
             type="text"
             class="form-control mb-1"
-            id="estado"
-            formControlName="estado"
+            id="dataCadastro"
+            formControlName="dataCadastro"
           />
           <span
-            class="help-block text-danger mb-3"
+            class="help-block text-danger"
             *ngIf="
-              !formDados.get('endereco.estado')!.valid &&
-              formDados.get('endereco.estado')!.touched
+              !formDados.get('dataCadastro')!.valid &&
+              formDados.get('dataCadastro')!.touched
             "
           >
-            Informe o estado
+            Informe a data de cadastro
           </span>
         </div>
       </div>
-    </div>
 
-    <button
-      type="submit"
-      class="btn btn-primary mb-3"
-      style="margin-right: 10px"
-      [disabled]="!formDados.valid"
-    >
-      Salvar Dados
-    </button>
-    <button type="button" class="btn btn-secondary mb-3" (click)="onClear()">
-      Limpar Dados
-    </button>
-    <button
-      type="button"
-      class="btn btn-danger mb-3"
-      style="margin-left: auto; display: block"
-      (click)="goBackPage()"
-    >
-      Voltar
-    </button>
-  </form>
+      <div class="row">
+        <div class="mb-3 col">
+          <label for="numeroCelular" class="form-label"
+            >Numero de celular</label
+          >
+          <input
+            placeholder="(00)00000-0000"
+            type="text"
+            class="form-control mb-1"
+            id="numeroCelular"
+            formControlName="numeroCelular"
+            #numeroCelular
+          />
+          <span
+            class="help-block text-danger mb-3"
+            *ngIf="
+              !formDados.get('numeroCelular')!.valid &&
+              formDados.get('numeroCelular')!.touched
+            "
+          >
+            Informe o numero de celular
+          </span>
+        </div>
+        <div class="mb-3 col">
+          <label for="salarioMensal" class="form-label">Salario mensal</label>
+          <input
+            type="text"
+            class="form-control mb-1"
+            id="salarioMensal"
+            formControlName="salarioMensal"
+          />
+          <span
+            class="help-block text-danger mb-3"
+            *ngIf="
+              !formDados.get('salarioMensal')!.valid &&
+              formDados.get('salarioMensal')!.touched
+            "
+          >
+            Informe o salário mensal
+          </span>
+        </div>
+        <div class="mb-3 col">
+          <a class="eye-link" (click)="showPass(senha)">
+            <i
+              class="bi bi-eye"
+              style="margin-right: 5px"
+              *ngIf="!showPassword"
+            ></i>
+            <i
+              class="bi bi-eye-slash-fill"
+              style="margin-right: 5px"
+              *ngIf="showPassword"
+            ></i>
+          </a>
+          <label for="senha" class="form-label">Senha (6 dígitos)</label>
+          <input
+            #senha
+            placeholder="******"
+            type="password"
+            class="form-control mb-1"
+            id="senha"
+            formControlName="senha"
+            maxlength="6"
+          />
+          <span
+            class="help-block text-danger mb-3"
+            *ngIf="
+              !formDados.get('senha')!.valid && formDados.get('senha')!.touched
+            "
+          >
+            Informe a senha
+          </span>
+        </div>
+      </div>
+      <div formGroupName="endereco" class="mb-2">
+        <div class="row">
+          <div class="mb-3 col">
+            <label for="cep" class="form-label">Cep</label>
+            <input
+              type="text"
+              class="form-control mb-1"
+              id="cep"
+              formControlName="cep"
+              (blur)="consultaCEP()"
+            />
+            <span
+              class="help-block text-danger mb-3"
+              *ngIf="
+                !formDados.get('endereco.cep')!.valid &&
+                formDados.get('endereco.cep')!.touched
+              "
+            >
+              Informe o cep
+            </span>
+          </div>
+          <div class="mb-3 col">
+            <label for="rua" class="form-label">Rua</label>
+            <input
+              type="text"
+              class="form-control mb-1"
+              id="rua"
+              formControlName="rua"
+            />
+            <span
+              class="help-block text-danger mb-3"
+              *ngIf="
+                !formDados.get('endereco.rua')!.valid &&
+                formDados.get('endereco.rua')!.touched
+              "
+            >
+              Informe a rua
+            </span>
+          </div>
+          <div class="mb-3 col">
+            <label for="numero" class="form-label">Numero</label>
+            <input
+              type="text"
+              class="form-control mb-1"
+              id="numero"
+              formControlName="numero"
+            />
+            <span
+              class="help-block text-danger mb-3"
+              *ngIf="
+                !formDados.get('endereco.numero')!.valid &&
+                formDados.get('endereco.numero')!.touched
+              "
+            >
+              Informe o numero
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="mb-3 col">
+            <label for="bairro" class="form-label">Bairro</label>
+            <input
+              type="text"
+              class="form-control mb-1"
+              id="bairro"
+              formControlName="bairro"
+            />
+            <span
+              class="help-block text-danger mb-3"
+              *ngIf="
+                !formDados.get('endereco.bairro')!.valid &&
+                formDados.get('endereco.bairro')!.touched
+              "
+            >
+              Informe o bairro
+            </span>
+          </div>
+          <div class="mb-3 col">
+            <label for="cidade" class="form-label">Cidade</label>
+            <input
+              type="text"
+              class="form-control mb-1"
+              id="cidade"
+              formControlName="cidade"
+            />
+            <span
+              class="help-block text-danger mb-3"
+              *ngIf="
+                !formDados.get('endereco.cidade')!.valid &&
+                formDados.get('endereco.cidade')!.touched
+              "
+            >
+              Informe a cidade
+            </span>
+          </div>
+          <div class="mb-3 col">
+            <label for="estado" class="form-label">Estado</label>
+            <input
+              type="text"
+              class="form-control mb-1"
+              id="estado"
+              formControlName="estado"
+            />
+            <span
+              class="help-block text-danger mb-3"
+              *ngIf="
+                !formDados.get('endereco.estado')!.valid &&
+                formDados.get('endereco.estado')!.touched
+              "
+            >
+              Informe o estado
+            </span>
+          </div>
+        </div>
+      </div>
+    <!--   <hr class="mb-4" /> -->
+      <button
+        type="submit"
+        class="btn btn-primary mb-3"
+        style="margin-right: 10px"
+        [disabled]="!formDados.valid"
+      >
+        Salvar Dados
+      </button>
+      <button type="button" class="btn btn-secondary mb-3" (click)="onClear()">
+        Limpar Dados
+      </button>
+      <button
+        type="button"
+        class="btn btn-danger mb-3"
+        style="margin-left: auto; display: block"
+        (click)="goBackPage()"
+      >
+        Voltar
+      </button>
+    </form>
+  </div>
 </div>
-<br />

@@ -1,7 +1,18 @@
+#home {
+  min-height: 100vh;
+  background-color: #fff;
+}
+
 .sub-title {
   color: #003767;
   font-size: 25px;
   margin-bottom: 30px;
+}
+
+.area-login {
+  padding: 25px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.8);
 }
 
 .title {
@@ -14,8 +25,16 @@
   background: #ec7000;
 }
 
-.mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
+.mat-flat-button.mat-primary,
+.mat-raised-button.mat-primary,
+.mat-fab.mat-primary,
+.mat-mini-fab.mat-primary {
   background-color: #003767;
+}
+
+.mat-form-field-wrapper {
+  background: #fff!important;
+  border-radius: 10px 10px 0 0;
 }
 
 .example-full-width {

@@ -1,41 +1,48 @@
-<mat-toolbar color="primary" class="mb-5">
-  <img
-    class="img-itau"
-    src="../assets/images/logo-itau-varejo-desktop.webp"
-    alt="Logo Itaú"
-  />
-  <span>Abertura de conta 100% digital</span>
-  <span class="example-spacer"></span>
-</mat-toolbar>
+<div
+  id="home"
+  style="
+    background: url('../../assets/images/publi-itau.jpg')top right no-repeat;
+    background-size: cover;
+  "
+>
+  <mat-toolbar color="primary" class="mb-5">
+    <img
+      class="img-itau"
+      src="../assets/images/logo-itau-varejo-desktop.webp"
+      alt="Logo Itaú"
+    />
+    <span>Abertura de conta 100% digital</span>
+    <span class="example-spacer"></span>
+  </mat-toolbar>
 
-<div class="container">
-  <div class="row">
-    <h1 class="title">Bem vindo!</h1>
-    <h2 class="sub-title">
-      Nós estamos muito felizes em receber você
-      <i class="bi bi-emoji-laughing"></i>
-    </h2>
-  </div>
- <form [formGroup]="formCadastro" (ngSubmit)="onSubmit()">
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label matPlaceholder="000">Digite o CPF (Apenas numeros):</mat-label>
-      <input type="string" matInput formControlName="cpf" maxlength="11" />
-    </mat-form-field>
-    <div class="help-block text-danger mb-3">
-      <span
-        *ngIf="
-          !formCadastro.get('cpf')!.valid && formCadastro.get('cpf')!.touched
-        "
-      >
-        O CPF digitado não é válido
-      </span>
-      <span
-      *ngIf="canNavigate && !formCadastro.get('cpf')!.touched"
-    >
-      Digite o cpf
-    </span>
+  <div class="container area-login">
+    <div class="row">
+      <h1 class="title">Bem vindo!</h1>
+      <h2 class="sub-title">
+        Estamos muito felizes em receber você
+        <i class="bi bi-emoji-laughing"></i>
+      </h2>
     </div>
-    <button mat-raised-button color="primary">Nova conta</button>
-  </form>
+    <form [formGroup]="formCadastro" (ngSubmit)="onSubmit()">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label matPlaceholder="000"
+          >Digite o CPF (Apenas numeros):</mat-label
+        >
+        <input type="string" matInput formControlName="cpf" maxlength="11" />
+      </mat-form-field>
+      <div class="help-block text-danger mb-3">
+        <span
+          *ngIf="
+            !formCadastro.get('cpf')!.valid && formCadastro.get('cpf')!.touched
+          "
+        >
+          O CPF digitado não é válido
+        </span>
+        <span *ngIf="canNavigate && !formCadastro.get('cpf')!.touched">
+          Digite o cpf
+        </span>
+      </div>
+      <button mat-raised-button color="primary">Nova conta</button>
+    </form>
+  </div>
 </div>
-<br />
