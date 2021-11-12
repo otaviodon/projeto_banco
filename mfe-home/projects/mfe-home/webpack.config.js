@@ -49,7 +49,6 @@ module.exports = {
         "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
         "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
         "@angular/material": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-        "@angular/material": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
         "@angular/platform-browser/animations": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
         ...sharedMappings.getDescriptors()
       })

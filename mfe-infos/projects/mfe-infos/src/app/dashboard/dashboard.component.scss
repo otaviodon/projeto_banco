@@ -26,9 +26,25 @@ h1 {
   background: unset;
 }
 
+.mobile {
+  display: none;
+}
+
 @media screen and (max-width: 800px) {
   h1 {
     font-size: 5vw;
     margin: 20px;
+  }
+
+  #dashboard {
+    background-position-x: 54%!important;
+  }
+
+  .desktop {
+    display: none;
+  }
+
+  .mobile {
+    display: block;
   }
 }
