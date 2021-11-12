@@ -3,24 +3,30 @@
   padding-bottom: 50px;
 }
 
-h1{
+h1 {
   color: #003767;
   font-weight: bold;
   font-size: 30px;
   margin-bottom: 20px;
+  line-height: 1.5;
 }
 
 label {
   color: #003767;
   font-weight: 500;
+  font-size: 18px;
 }
 
 form {
   background: rgba(0, 0, 0, 0.05);
-  padding: 25px;
+  padding: 50px 70px;
   border-radius: 20px;
   box-shadow: 15px 15px 200px rgb(0, 0, 0, 0.3);
   border: 0.5px solid rgba(0, 0, 0, 0.05);
+}
+
+form input {
+  height: 50px;
 }
 
 .img-itau {
@@ -70,8 +76,24 @@ input.ng-invalid.ng-touched {
   .row {
     flex-direction: column;
   }
-  .btn-primary, .btn-secondary {
+  .btn-primary,
+  .btn-secondary {
     width: 100%;
   }
 
+  h1 {
+    font-size: 25px;
+  }
+
+  form {
+    padding: 25px;
+  }
+
+  form input {
+    height: 45px;
+  }
+
+  label{
+    font-size: 16px;
+  }
 }

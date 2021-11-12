@@ -2,9 +2,32 @@
   padding: 0 0 50px;
 }
 
+h1{
+  color: #003767;
+  font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+label {
+  color: #003767;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+
+input {
+  height: 50px;
+}
+
+button{
+  height: 45px;
+}
+
 .wrap-dados {
   background: rgba(0, 0, 0, 0.05);
-  padding: 25px;
+  padding: 50px 70px;
   border-radius: 20px;
   box-shadow: 15px 15px 100px rgb(0, 0, 0, 0.3);
   border: 0.5px solid rgba(0, 0, 0, 0.05);
@@ -32,4 +55,10 @@
   }
 
   button{margin-right: 0;}
+
+  h1{font-size: 25px;}
+
+  .wrap-dados{
+    padding: 25px;
+  }
 }

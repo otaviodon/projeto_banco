@@ -5,226 +5,232 @@
       src="../assets/images/logo-itau-varejo-desktop.webp"
       alt="Logo Itaú"
     />
-    <span>Confira os dados informados</span>
+    <span>Dados</span>
     <span class="example-spacer"></span>
   </mat-toolbar>
-  <div class="container wrap-dados" *ngIf="dadosCliente">
-    <div class="row">
-      <div class="mb-3 col">
-        <label for="nomeCompleto" class="form-label">Nome completo</label>
-        <input
-          type="text"
-          class="form-control mb-1"
-          id="nomeCompleto"
-          disabled
-          [value]="dadosCliente.nomeCompleto"
-        />
+  <div class="container">
+    <h1>Confira se os dados informados estão corretos</h1>
+    <div class="wrap-dados" *ngIf="dadosCliente">
+      <div class="row">
+        <div class="mb-3 col">
+          <label for="nomeCompleto" class="form-label">Nome completo</label>
+          <input
+            type="text"
+            class="form-control mb-1"
+            id="nomeCompleto"
+            disabled
+            [value]="dadosCliente.nomeCompleto"
+          />
+        </div>
+        <div class="mb-3 col">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control mb-1"
+            id="email"
+            disabled
+            [value]="dadosCliente.email"
+          />
+        </div>
       </div>
-      <div class="mb-3 col">
-        <label for="email" class="form-label">Email</label>
-        <input
-          type="email"
-          class="form-control mb-1"
-          id="email"
-          disabled
-          [value]="dadosCliente.email"
-        />
+      <div class="row">
+        <div class="mb-3 col">
+          <label for="cpf" class="form-label">CPF</label>
+          <input
+            type="text"
+            class="form-control mb-1"
+            id="cpf"
+            maxlength="11"
+            disabled
+            [value]="dadosCliente.cpf"
+          />
+        </div>
+
+        <div class="mb-3 col">
+          <label for="dataNascimento" class="form-label"
+            >Data de nascimento</label
+          >
+          <input
+            type="text"
+            class="form-control mb-1"
+            id="dataNascimento"
+            disabled
+            [value]="dadosCliente.dataNascimento"
+          />
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="mb-3 col">
-        <label for="cpf" class="form-label">CPF</label>
-        <input
-          type="text"
-          class="form-control mb-1"
-          id="cpf"
-          maxlength="11"
-          disabled
-          [value]="dadosCliente.cpf"
-        />
+      <div class="row">
+        <div class="mb-3 col">
+          <label for="dataCadastro" class="form-label">Data de cadastro</label>
+          <input
+            type="text"
+            class="form-control mb-1"
+            id="dataCadastro"
+            disabled
+            [value]="dadosCliente.dataCadastro"
+          />
+        </div>
+        <div class="mb-3 col">
+          <label for="numeroCelular" class="form-label"
+            >Numero de celular</label
+          >
+          <input
+            type="text"
+            class="form-control mb-1"
+            id="numeroCelular"
+            disabled
+            [value]="dadosCliente.numeroCelular"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="mb-3 col">
+          <label for="salarioMensal" class="form-label">Salario mensal</label>
+          <input
+            type="text"
+            class="form-control mb-1"
+            id="salarioMensal"
+            disabled
+            [value]="dadosCliente.salarioMensal"
+          />
+        </div>
+        <div class="mb-3 col">
+          <label for="senha" class="form-label">Senha</label>
+          <input
+            type="text"
+            class="form-control mb-1"
+            id="senha"
+            maxlength="6"
+            disabled
+            [value]="dadosCliente.senha"
+          />
+        </div>
       </div>
 
-      <div class="mb-3 col">
-        <label for="dataNascimento" class="form-label"
-          >Data de nascimento</label
+      <div class="row">
+        <div class="mb-3 col">
+          <label for="cep" class="form-label">Cep</label>
+          <input
+            type="text"
+            class="form-control mb-1"
+            id="cep"
+            disabled
+            [value]="dadosCliente.endereco.cep"
+          />
+        </div>
+        <div class="mb-3 col">
+          <label for="rua" class="form-label">Rua</label>
+          <input
+            type="text"
+            class="form-control mb-1"
+            id="rua"
+            disabled
+            [value]="dadosCliente.endereco.rua"
+          />
+        </div>
+        <div class="mb-3 col">
+          <label for="numero" class="form-label">Numero</label>
+          <input
+            type="text"
+            class="form-control mb-1"
+            id="numero"
+            disabled
+            [value]="dadosCliente.endereco.numero"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="mb-3 col">
+          <label for="bairro" class="form-label">Bairro</label>
+          <input
+            type="text"
+            class="form-control mb-1"
+            id="bairro"
+            disabled
+            [value]="dadosCliente.endereco.bairro"
+          />
+        </div>
+        <div class="mb-3 col">
+          <label for="cidade" class="form-label">Cidade</label>
+          <input
+            type="text"
+            class="form-control mb-1"
+            id="cidade"
+            disabled
+            [value]="dadosCliente.endereco.cidade"
+          />
+        </div>
+        <div class="mb-3 col">
+          <label for="estado" class="form-label">Estado</label>
+          <input
+            type="text"
+            class="form-control mb-1"
+            id="estado"
+            disabled
+            [value]="dadosCliente.endereco.estado"
+          />
+        </div>
+      </div>
+      <div class="row">
+        <div class="mb-3 col">
+          <label for="estado" class="form-label">Tipo de conta</label>
+          <input
+            type="text"
+            class="form-control mb-1"
+            id="estado"
+            disabled
+            [value]="dadosCliente.plano.tipoConta"
+          />
+        </div>
+        <div class="mb-3 col">
+          <label for="cidade" class="form-label">Tipo de cartão</label>
+          <input
+            type="text"
+            class="form-control mb-1"
+            id="cidade"
+            disabled
+            [value]="dadosCliente.plano.tipoCartao"
+          />
+        </div>
+        <div class="mb-3 col">
+          <label for="bairro" class="form-label">Custo mensal</label>
+          <input
+            type="text"
+            class="form-control mb-1"
+            id="bairro"
+            disabled
+            [value]="dadosCliente.plano.custoMensal"
+          />
+        </div>
+      </div>
+      <div class="row" *ngIf="dadosCliente.urlImagem">
+        <div class="mb-3 col">
+          <label for="urlImagem" class="form-label">Url Imagem</label>
+          <input
+            type="text"
+            class="form-control mb-1"
+            id="urlImagem"
+            disabled
+            [value]="dadosCliente.urlImagem"
+          />
+        </div>
+      </div>
+      <div class="row mt-3">
+        <button
+          type="submit"
+          class="btn btn-primary mb-3"
+          [routerLink]="['/dashboard']"
         >
-        <input
-          type="text"
-          class="form-control mb-1"
-          id="dataNascimento"
-          disabled
-          [value]="dadosCliente.dataNascimento"
-        />
+          Confirmar
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger mb-3"
+          (click)="goBackPage()"
+        >
+          Voltar
+        </button>
       </div>
-
-      <div class="mb-3 col">
-        <label for="dataCadastro" class="form-label">Data de cadastro</label>
-        <input
-          type="text"
-          class="form-control mb-1"
-          id="dataCadastro"
-          disabled
-          [value]="dadosCliente.dataCadastro"
-        />
-      </div>
-    </div>
-    <div class="row">
-      <div class="mb-3 col">
-        <label for="numeroCelular" class="form-label">Numero de celular</label>
-        <input
-          type="text"
-          class="form-control mb-1"
-          id="numeroCelular"
-          disabled
-          [value]="dadosCliente.numeroCelular"
-        />
-      </div>
-      <div class="mb-3 col">
-        <label for="salarioMensal" class="form-label">Salario mensal</label>
-        <input
-          type="text"
-          class="form-control mb-1"
-          id="salarioMensal"
-          disabled
-          [value]="dadosCliente.salarioMensal"
-        />
-      </div>
-      <div class="mb-3 col">
-        <label for="senha" class="form-label">Senha</label>
-        <input
-          type="text"
-          class="form-control mb-1"
-          id="senha"
-          maxlength="6"
-          disabled
-          [value]="dadosCliente.senha"
-        />
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="mb-3 col">
-        <label for="cep" class="form-label">Cep</label>
-        <input
-          type="text"
-          class="form-control mb-1"
-          id="cep"
-          disabled
-          [value]="dadosCliente.endereco.cep"
-        />
-      </div>
-      <div class="mb-3 col">
-        <label for="rua" class="form-label">Rua</label>
-        <input
-          type="text"
-          class="form-control mb-1"
-          id="rua"
-          disabled
-          [value]="dadosCliente.endereco.rua"
-        />
-      </div>
-      <div class="mb-3 col">
-        <label for="numero" class="form-label">Numero</label>
-        <input
-          type="text"
-          class="form-control mb-1"
-          id="numero"
-          disabled
-          [value]="dadosCliente.endereco.numero"
-        />
-      </div>
-    </div>
-    <div class="row">
-      <div class="mb-3 col">
-        <label for="bairro" class="form-label">Bairro</label>
-        <input
-          type="text"
-          class="form-control mb-1"
-          id="bairro"
-          disabled
-          [value]="dadosCliente.endereco.bairro"
-        />
-      </div>
-      <div class="mb-3 col">
-        <label for="cidade" class="form-label">Cidade</label>
-        <input
-          type="text"
-          class="form-control mb-1"
-          id="cidade"
-          disabled
-          [value]="dadosCliente.endereco.cidade"
-        />
-      </div>
-      <div class="mb-3 col">
-        <label for="estado" class="form-label">Estado</label>
-        <input
-          type="text"
-          class="form-control mb-1"
-          id="estado"
-          disabled
-          [value]="dadosCliente.endereco.estado"
-        />
-      </div>
-    </div>
-    <div class="row">
-      <div class="mb-3 col">
-        <label for="estado" class="form-label">Tipo de conta</label>
-        <input
-          type="text"
-          class="form-control mb-1"
-          id="estado"
-          disabled
-          [value]="dadosCliente.plano.tipoConta"
-        />
-      </div>
-      <div class="mb-3 col">
-        <label for="cidade" class="form-label">Tipo de cartão</label>
-        <input
-          type="text"
-          class="form-control mb-1"
-          id="cidade"
-          disabled
-          [value]="dadosCliente.plano.tipoCartao"
-        />
-      </div>
-      <div class="mb-3 col">
-        <label for="bairro" class="form-label">Custo mensal</label>
-        <input
-          type="text"
-          class="form-control mb-1"
-          id="bairro"
-          disabled
-          [value]="dadosCliente.plano.custoMensal"
-        />
-      </div>
-    </div>
-    <div class="row" *ngIf="dadosCliente.urlImagem">
-      <div class="mb-3 col">
-        <label for="urlImagem" class="form-label">Url Imagem</label>
-        <input
-          type="text"
-          class="form-control mb-1"
-          id="urlImagem"
-          disabled
-          [value]="dadosCliente.urlImagem"
-        />
-      </div>
-    </div>
-    <div class="row mt-3">
-      <button
-        type="submit"
-        class="btn btn-primary mb-3"
-        [routerLink]="['/dashboard']"
-      >
-        Confirmar
-      </button>
-      <button
-        type="button"
-        class="btn btn-danger mb-3"
-        (click)="goBackPage()"
-      >
-        Voltar
-      </button>
     </div>
   </div>
 </div>

@@ -5,7 +5,7 @@
       src="../assets/images/logo-itau-varejo-desktop.webp"
       alt="Logo Itaú"
     />
-    <span>Selecione um plano</span>
+    <span>Planos</span>
     <span class="example-spacer"></span>
   </mat-toolbar>
   <div class="container">
@@ -24,7 +24,7 @@
         *ngIf="listaPlanos"
         formControlName="_id"
       >
-        <option value="">Selecione</option>
+        <option value="">Selecione um plano</option>
         <option *ngFor="let plano of listaPlanos" [value]="plano._id">
           {{ plano.tipoConta }}
         </option>
