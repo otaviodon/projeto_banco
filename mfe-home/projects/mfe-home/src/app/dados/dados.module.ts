@@ -4,6 +4,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { DadosRoutingModule } from './dados-routing.module';
 import { DadosComponent } from './dados.component';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [DadosComponent],
@@ -13,6 +14,9 @@ import { DadosComponent } from './dados.component';
     FormsModule,
     ReactiveFormsModule,
     MatToolbarModule,
+    NgxMaskModule.forRoot({
+      dropSpecialCharacters: false
+    })
   ],
   providers: [],
 })

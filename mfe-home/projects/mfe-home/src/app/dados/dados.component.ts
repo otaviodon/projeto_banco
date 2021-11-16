@@ -16,7 +16,6 @@ export class DadosComponent implements OnInit {
   userData = false;
   showPassword: boolean = false;
   userDataInfo!: DadosCadastrais;
-  @ViewChild('numeroCelular', { static: true }) numeroCelular!: ElementRef;
 
   constructor(
     private dadosService: DadosService,
@@ -65,7 +64,7 @@ export class DadosComponent implements OnInit {
       });
     } else {
       this.formDados.patchValue({
-        cpf: cpf,
+        cpf: cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/g,"\$1.\$2.\$3\-\$4"),
       });
     }
   }
@@ -74,7 +73,7 @@ export class DadosComponent implements OnInit {
     this.formDados.patchValue({
       nomeCompleto: userData.nomeCompleto,
       email: userData.email,
-      cpf: userData.cpf,
+      cpf: userData.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/g,"\$1.\$2.\$3\-\$4"),
       dataNascimento: userData.dataNascimento,
       dataCadastro: userData.dataNascimento,
       salarioMensal: userData.salarioMensal,
@@ -126,7 +125,7 @@ export class DadosComponent implements OnInit {
 
     this.router.navigate(['/selfie'], {
       queryParams: {
-        cpf: dadosCadastrais.cpf,
+        cpf: dadosCadastrais.cpf.replace(/(\.|\/|\-)/g,""),
         salarioMensal: dadosCadastrais.salarioMensal,
       },
     });

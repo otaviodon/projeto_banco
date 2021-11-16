@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HomeModule } from './home/home.module';
 import { SelfieModule } from './selfie/selfie.module';
+import { NgxMaskModule} from 'ngx-mask'
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,6 +15,9 @@ import { SelfieModule } from './selfie/selfie.module';
     DadosModule,
     SelfieModule,
     HttpClientModule,
+    NgxMaskModule.forRoot({
+      dropSpecialCharacters: true
+    })
   ],
   providers: [],
   bootstrap: [AppComponent],
