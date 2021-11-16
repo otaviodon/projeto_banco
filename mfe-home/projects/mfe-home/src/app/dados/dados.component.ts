@@ -97,7 +97,7 @@ export class DadosComponent implements OnInit {
     const dadosCadastrais: DadosCadastrais = {
       nomeCompleto: this.formDados.value.nomeCompleto,
       email: this.formDados.value.email,
-      cpf: this.formDados.value.cpf,
+      cpf: this.formDados.value.cpf.replace(/(\.|\/|\-)/g,""),
       dataNascimento: this.formDados.value.dataNascimento,
       dataCadastro: this.formDados.value.dataCadastro,
       salarioMensal: salarioMensal,
