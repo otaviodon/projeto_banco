@@ -32,6 +32,7 @@
 						],
 						"styles": [
 							"projects/mfe-infos/src/styles.scss",
+              "./node_modules/bootstrap/scss/bootstrap.scss",
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
 						],
 						"scripts": [],
@@ -110,6 +111,7 @@
 						],
 						"styles": [
 							"projects/mfe-infos/src/styles.scss",
+              "./node_modules/bootstrap/scss/bootstrap.scss",
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
 						],
 						"scripts": []
