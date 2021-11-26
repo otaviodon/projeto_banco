@@ -13,4 +13,14 @@ export class SelfieService {
       formData
     );
   }
+
+  alterarSelfie(cpf: string, urlImagem: string) {
+    return this.httpClient.post(
+      'http://bancoapi-env.eba-ra7jpuyh.us-east-2.elasticbeanstalk.com/api/Clientes/alterarImagem',
+      {
+        cpf: cpf,
+        urlImagem: urlImagem,
+      }
+    );
+  }
 }

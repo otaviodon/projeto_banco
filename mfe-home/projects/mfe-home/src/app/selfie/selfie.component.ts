@@ -34,18 +34,26 @@ export class SelfieComponent implements OnInit {
       formData.append('filetoupload', foto);
 
       this.selfieService.uploadImage(formData).subscribe((res) => {
-        console.log('Upload');
-        console.log(res);
+    /*     console.log('Upload');
+        console.log(res); */
         const imagem: any = res;
-
         this.urlImagem = imagem.url;
+     /*    console.log(imagem);
+        console.log(this.urlImagem); */
+        this.alterarImagem(this.urlImagem)
       });
     }
   }
 
+  alterarImagem(urlImagem: string) {
+    this.selfieService.alterarSelfie(this.cpf, urlImagem).subscribe((data) => {
+      console.log(data);
+    });
+  }
+
   onUpload() {
     //Apenas navegar
-    this.router.navigate(['/planos'], {
+     this.router.navigate(['/planos'], {
       queryParams: {
         cpf: this.cpf,
         salarioMensal: this.salarioMensal,
