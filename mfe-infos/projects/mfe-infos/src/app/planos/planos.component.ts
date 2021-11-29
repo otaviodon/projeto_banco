@@ -8,7 +8,7 @@ import { PlanosService } from './planos.service';
 @Component({
   selector: 'app-planos',
   templateUrl: './planos.component.html',
-  styleUrls: ['./planos.component.scss']
+  styleUrls: ['./planos.component.scss'],
 })
 export class PlanosComponent implements OnInit {
   cpf: string = '';
@@ -21,10 +21,12 @@ export class PlanosComponent implements OnInit {
     private planosService: PlanosService,
     private router: Router
   ) {
-    this.route.queryParams.subscribe((queryParams: Params) => {
+    /* this.route.queryParams.subscribe((queryParams: Params) => {
       this.cpf = queryParams['cpf'];
       this.salarioMensal = queryParams['salarioMensal'];
-    });
+    }); */
+    this.cpf = localStorage['cpfUser'];
+    this.salarioMensal = localStorage['salarioMensal'];
     this.planos();
     this.formPlanos = new FormGroup({
       _id: new FormControl('', Validators.required),
@@ -55,11 +57,14 @@ export class PlanosComponent implements OnInit {
       console.log(data);
     });
 
-    this.router.navigate(['/infos'], {
+    this.router.navigate(
+      ['/infos']
+      /*    , {
       queryParams: {
         cpf: this.cpf,
       },
-    });
+    } */
+    );
   }
 
   planos() {
@@ -79,5 +84,4 @@ export class PlanosComponent implements OnInit {
     });
     return planoSelecionado;
   }
-
 }

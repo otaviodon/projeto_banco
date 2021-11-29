@@ -18,9 +18,11 @@ export class InfosComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router
   ) {
-    this.route.queryParams.subscribe((queryParams: Params) => {
+   /*  this.route.queryParams.subscribe((queryParams: Params) => {
       this.cpf = queryParams['cpf'];
-    });
+    }); */
+
+    this.cpf = localStorage['cpfUser']
     this.getDados();
   }
 

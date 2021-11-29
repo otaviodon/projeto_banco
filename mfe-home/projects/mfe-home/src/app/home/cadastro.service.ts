@@ -9,7 +9,7 @@ export class CadastroService {
   constructor(private httpClient: HttpClient) {}
 
   veriryUserExists(cpf: string) {
-    console.log(cpf);
+    //console.log(cpf);
     return this.httpClient.post(
       'http://bancoapi-env.eba-ra7jpuyh.us-east-2.elasticbeanstalk.com/api/ReaproveitaDados/buscarCPF',
       { cpf }

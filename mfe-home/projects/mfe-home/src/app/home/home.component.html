@@ -27,7 +27,7 @@
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Digite o CPF:</mat-label>
         <input
-          type="string"
+          type="text"
           matInput
           formControlName="cpf"
           name="cpf"
@@ -43,7 +43,7 @@
         >
           O CPF digitado não é válido
         </span>
-        <span *ngIf="canNavigate && !formCadastro.get('cpf')!.touched">
+        <span *ngIf="cantNavigate && !formCadastro.get('cpf')!.touched">
           Digite o cpf
         </span>
       </div>

@@ -7,12 +7,12 @@ import { UserDados } from './userDados.model';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
   formCadastro: FormGroup;
   usuariosCadastrados: UserDados[] = [];
-  canNavigate = false;
+  cantNavigate = false;
 
   constructor(
     private cadastroService: CadastroService,
@@ -39,10 +39,12 @@ export class HomeComponent implements OnInit {
   onSubmit() {
     const cpfCliente = this.formCadastro.value.cpf;
     if (cpfCliente.length === 11) {
-      this.canNavigate = false;
+      this.cantNavigate = false;
+      localStorage['cpfUser'] = cpfCliente;
       this.verifyIfUserExists(cpfCliente);
+      this.router.navigate(['dados']);
     } else {
-      this.canNavigate = true;
+      this.cantNavigate = true;
     }
   }
 
@@ -52,19 +54,19 @@ export class HomeComponent implements OnInit {
       console.log(objResponse);
       if (objResponse.cliente) {
         //console.log('USUARIO EXISTE');
-        this.router.navigate(['dados'], {
+        /*    this.router.navigate(['dados'], {
           queryParams: { cpf: cpf, userData: true },
-        });
+        }); */
       } else {
-        this.router.navigate(['dados'], {
-          queryParams: { cpf: cpf},
-        });
+        /*    this.router.navigate(['dados'], {
+          queryParams: { cpf: cpf },
+        }); */
         //console.log('USUARIO NÃO EXISTE');
       }
     });
   }
 
-/*   verifyIfUserExistsFilter(cpf: string): UserDados[] {
+  /*   verifyIfUserExistsFilter(cpf: string): UserDados[] {
     const pessoExiste = this.usuariosCadastrados.filter(function (pessoa) {
       return pessoa.cpf === cpf;
     });

@@ -13,14 +13,12 @@ export class DadosComponent implements OnInit {
   formDados: FormGroup;
   valorStatus = 0;
   cpf: string = '';
-  userData = false;
   showPassword: boolean = false;
   userDataInfo!: DadosCadastrais;
 
   constructor(
     private dadosService: DadosService,
-    private router: Router,
-    private route: ActivatedRoute
+    private router: Router //private route: ActivatedRoute
   ) {
     this.formDados = new FormGroup({
       nomeCompleto: new FormControl('', Validators.required),
@@ -47,33 +45,36 @@ export class DadosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe((queryParams: Params) => {
+    /*  this.route.queryParams.subscribe((queryParams: Params) => {
       this.cpf = queryParams['cpf'];
       this.userData = queryParams['userData'];
       this.getUserData(this.cpf, this.userData);
+    }); */
+
+    this.cpf = localStorage['cpfUser'];
+    this.dadosService.getCliente(this.cpf).subscribe((data) => {
+      const userData: any = data;
+      console.log(userData);
+      this.userDataInfo = userData.cliente;
+      if (this.userDataInfo) {
+        this.populaForm(this.userDataInfo);
+      } else {
+        this.formDados.patchValue({
+          cpf: this.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/g, '$1.$2.$3-$4'),
+        });
+      }
     });
   }
 
-  getUserData(cpf: string, hasData: boolean) {
-    console.log(hasData);
-    if (hasData) {
-      this.dadosService.getCliente(cpf).subscribe((data) => {
-        const userData: any = data;
-        this.userDataInfo = userData.cliente;
-        this.populaForm(this.userDataInfo);
-      });
-    } else {
-      this.formDados.patchValue({
-        cpf: cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/g,"\$1.\$2.\$3\-\$4"),
-      });
-    }
+  getUserData(cpf: string) {
+    console.log(localStorage['userData']);
   }
 
   populaForm(userData: DadosCadastrais) {
     this.formDados.patchValue({
       nomeCompleto: userData.nomeCompleto,
       email: userData.email,
-      cpf: userData.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/g,"\$1.\$2.\$3\-\$4"),
+      cpf: userData.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/g, '$1.$2.$3-$4'),
       dataNascimento: userData.dataNascimento,
       dataCadastro: userData.dataNascimento,
       salarioMensal: userData.salarioMensal,
@@ -93,11 +94,12 @@ export class DadosComponent implements OnInit {
 
   onSubmit() {
     const salarioMensal = this.formDados.value.salarioMensal.replace(',', '.');
+    localStorage['salarioMensal'] = salarioMensal;
 
     const dadosCadastrais: DadosCadastrais = {
       nomeCompleto: this.formDados.value.nomeCompleto,
       email: this.formDados.value.email,
-      cpf: this.formDados.value.cpf.replace(/(\.|\/|\-)/g,""),
+      cpf: this.formDados.value.cpf.replace(/(\.|\/|\-)/g, ''),
       dataNascimento: this.formDados.value.dataNascimento,
       dataCadastro: this.formDados.value.dataCadastro,
       salarioMensal: salarioMensal,
@@ -123,12 +125,15 @@ export class DadosComponent implements OnInit {
     console.log(dadosCadastrais);
     //this.formDados.reset();
 
-    this.router.navigate(['/selfie'], {
+    this.router.navigate(
+      ['/selfie']
+      /*     , {
       queryParams: {
         cpf: dadosCadastrais.cpf.replace(/(\.|\/|\-)/g,""),
         salarioMensal: dadosCadastrais.salarioMensal,
       },
-    });
+    } */
+    );
   }
 
   onClear() {
@@ -185,6 +190,4 @@ export class DadosComponent implements OnInit {
       }
     }
   }
-
-
 }
